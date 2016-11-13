@@ -41,10 +41,26 @@ namespace DiagnosticsToolsDemo
                 {
                     throw new ArgumentOutOfRangeException(nameof(i));
                 }
+                if (i % 1200 == 0)
+                {
+                    UseCPU();
+                }
             }
             catch (ArgumentOutOfRangeException)
             {
                 // Ignore it
+            }
+        }
+
+        private void UseCPU()
+        {
+            var startTime = DateTime.Now;
+            while (true)
+            {
+                if (DateTime.Now > startTime.AddMilliseconds(1500))
+                {
+                    break;
+                }
             }
         }
     }
